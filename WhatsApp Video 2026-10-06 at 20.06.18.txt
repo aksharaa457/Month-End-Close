@@ -1,0 +1,31 @@
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+
+This is the CFO suite in UniFi apps. Every part of the close, from setup through the final journal entry, runs on a single AI layer, the Enterprise Brain. Let's look at how to set up a particular entity with the power of Enterprise Brain.
+
+Enterprise Brain reconciles data across every connected system for an entity, including ledgers, subledgers, and source systems, so the rest of the close operates from one consistent view rather than relying on manual reconciliation. Now, let's look at the closure overview. This is the closure overview, the hub for close AI insights.
+
+It's generated from reconciled data and surfaces what needs attention without anyone having to search for it. As we scroll down, we can see a checklist with different completed tasks. Within the checklist, tasks aren't simply tracked.
+
+Some are completed by AI. This one shows that it was completed by Enterprise Brain. This view shows the reasoning.
+
+Enterprise Brain reconciled cut-off timestamps across 14 connected systems and matched them to the close calendar. The subtasks were also drafted by AI, and you can edit them freely. Moving on to accruals and prepaids.
+
+Here, the system detects missing accruals directly from ledger activity, so no one has to flag them first. It suggests the entry, and you can approve it. Moving on to recognition and compliance.
+
+Here, the recognition calculation runs automatically against every contract and plan, but it doesn't post on its own. Human-in-the-loop review means a person confirms every result before anything goes to the ledger. Now, let's look at the gating queue.
+
+Here, you can choose to defer a particular revenue recognition to the next month using the AI recommendation. You can also provide your justification for taking this step. Moving on to flux and variance.
+
+Within flux and variance, every flagged variance receives an AI explanation of what's driving the number. Attribution by child breaks it down further, showing which underlying contracts or accounts are contributing. Here, you can also add AI context to a variance, customising flux analysis for your unique business needs.
+
+AI context is different from a comment. A comment is a note for a colleague, while AI context helps the system understand how to evaluate that line in the future. In this case, billing occurs every 45 days.
+
+This context is embedded in the AI's understanding, so whenever this particular revenue is reconciled, it's taken into account. The AI learns about your business in real time and stays up to date. Now, let's look at the journal entries.
+
+The AI automatically prepares 37 draft journal entries for 37 flagged items. When it's time to act, AI brings all of these entries together in a single view. Here, we have 24 entries ready to go, amounting to 701K.
+
+Each one is tied back to the variance line and the ledger data behind it. You review each entry and then approve it. This is the human-in-the-loop layer we're talking about.
+
+Reconciliation, detection, explanation, and drafting. Enterprise Brain runs underneath all of it. That's the CFO Suite for you.
+
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)

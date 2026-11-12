@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continuous Close Hub - Continuous Close Solution</title>
+  <meta name="description" content="Real-Time AI Native Close Management Platform powered by Enterprise Brain.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app" class="app-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="5" fill="#00338D"/>
+            <path d="M7 17L17 7" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6 7H12V13H6V7Z" fill="#0091DA" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M12 11H18V17H12V11Z" fill="#00338D" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">Continuous Close Hub</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <!-- Record to Report (Expanded) -->
+          <div class="nav-group active-group">
+            <div class="nav-group-header">
+              <span class="nav-icon">📊</span>
+              <span class="nav-text">Record to Report</span>
+              <span class="chevron">▼</span>
+            </div>
+            <div class="nav-subitems">
+              <a href="#entities" class="sub-item" id="nav-entities">
+                <span class="dot"></span>
+                <span>Account Reconciliation</span>
+              </a>
+              <div class="nested-group">
+                <a href="#overview" class="sub-item active" id="nav-close-mgmt">
+                  <span class="sub-highlight">Close Management</span>
+                  <span class="chevron-sm">▼</span>
+                </a>
+                <div class="tree-children">
+                  <a href="#overview" class="tree-item active" data-view="overview">Closure overview</a>
+                  <a href="#checklist" class="tree-item" data-view="checklist">Checklist</a>
+                  <a href="#accruals" class="tree-item" data-view="accruals">Accrual & prepaid</a>
+                  <a href="#recognition" class="tree-item" data-view="recognition">Recognition and compliance</a>
+                  <a href="#flux" class="tree-item" data-view="flux">Flux & variance</a>
+                  <a href="#sources" class="tree-item" data-view="sources">Enterprise Brain / Setup</a>
+                </div>
+              </div>
+              <a href="#fixed-assets" class="sub-item">
+                <span class="dot"></span>
+                <span>Fixed Assets</span>
+              </a>
+              <a href="#intercompany" class="sub-item">
+                <span class="dot"></span>
+                <span>Intercompany & Consolidation</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-badge">
+          <div class="user-avatar">AJ</div>
+          <div class="user-details">
+            <span class="user-name">Akshara Jain</span>
+            <span class="user-role">Controller</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="breadcrumbs" id="top-breadcrumbs">
+            <span>Record to Report</span>
+            <span class="sep">&gt;</span>
+            <span class="current">Close Management</span>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search accounts, contracts, tasks..." id="global-search">
+            <span class="kbd">⌘K</span>
+          </div>
+
+          <div class="period-badge">
+            <span class="period-label">PERIOD:</span>
+            <span class="period-value">Aug 2026</span>
+          </div>
+
+          <button class="btn btn-outline" id="btn-export">
+            <span>Export</span>
+          </button>
+
+          <button class="btn btn-outline" id="btn-switch-hub" title="View all entities">
+            <span>All Entities</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Containers -->
+      <div class="content-scroll">
+        <!-- 1. Screen 1: Multi-Entity Close Acceleration Hub -->
+        <div id="view-entities" class="page-view">
+          <div class="page-header">
+            <div class="title-cluster">
+              <h1 class="page-title">Month-End Close Acceleration</h1>
+            </div>
+          </div>
+
+          <!-- Enterprise Brain Connected Status Banner -->
+          <div class="enterprise-brain-banner">
+            <div class="banner-left">
+              <span class="brain-icon">✦</span>
+              <span class="brain-badge">ENTERPRISE BRAIN</span>
+              <span class="banner-desc">Enterprise Brain connected: Slack, ledger, documents, contracts, billing and banking reconciled into one context. Closes context only what is personal to them.</span>
+            </div>
+            <div class="banner-right">
+              <span class="status-pill status-connected">
+                <span class="pulse-dot"></span> CONNECTED
+              </span>
+            </div>
+          </div>
+
+          <!-- AI Close Forecast Alert Box -->
+          <div class="ai-forecast-card">
+            <div class="forecast-icon">✦ AI CLOSE FORECAST</div>
+            <p class="forecast-text">
+              AI predicts close completion by <strong>D+8.0</strong> if the 12 ranked blockers clear today. The biggest drags are 9 overdue checklist tasks, Accrual & prepaid and Recognition and compliance and Flux & variance behind pace and 9 open checklist tasks.
+            </p>
+          </div>
+
+          <!-- Entity Cards Grid -->
+          <div class="entity-cards-grid" id="entities-grid">
+            <!-- Dynamic Entity Cards -->
+          </div>
+        </div>
+
+        <!-- 2. Screen 2: Enterprise Brain & Entity Setup -->
+        <div id="view-sources" class="page-view" style="display:none;">
+          <div class="page-header">
+            <div class="title-cluster">
+              <h1 class="page-title">Enterprise Brain</h1>
+              <span class="status-pill status-connected"><span class="pulse-dot"></span> CONNECTED</span>
+            </div>
+            <p class="page-subdesc">All connected sources are automatically reconciled into one context. Shared resources: communication channels, ERPs and CRM, and banks are linked to the entity. Closes read from Enterprise Brain.</p>
+          </div>
+
+          <!-- 6 Connected Categories Grid -->
+          <div class="brain-categories-grid">
+            <div class="category-card">
+              <div class="cat-header">
+                <span class="cat-num">1</span>
+                <h3>Communication channels</h3>
+              </div>
+              <p>Slack. Status updates, approvals and decisions.</p>
+              <div class="cat-tag">Slack</div>
+            </div>
+
+            <div class="category-card">
+              <div class="cat-header">
+                <span class="cat-num">2</span>
+                <h3>Documents & budget</h3>
+              </div>
+              <p>Drive, SharePoint - Financial models, budgets.</p>
+              <div class="cat-tag">Drive, SharePoint</div>
+            </div>
+
+            <div class="category-card">
+              <div class="cat-header">
+                <span class="cat-num">3</span>
+                <h3>Ledger</h3>
+              </div>
+              <p>NetSuite, SAP - Real-time balances and journals.</p>
+              <div class="cat-tag">NetSuite, SAP</div>
+            </div>
+
+            <div class="category-card">
+              <div class="cat-header">
+                <span class="cat-num">4</span>
+                <h3>Contracts & CRM</h3>
+              </div>
+              <p>Salesforce, HubSpot - Signed contracts, ARR and billing terms.</p>
+              <div class="cat-tag">Salesforce, HubSpot</div>
+            </div>
+
+            <div class="category-card">
+              <div class="cat-header">
+                <span class="cat-num">5</span>
+                <h3>Billing & usage</h3>
+              </div>
+              <p>Stripe - Invoices and metered events.</p>
+              <div class="cat-tag">Stripe</div>
+            </div>
+
+            <div class="category-card">
+              <div class="cat-header">
+                <span class="cat-num">6</span>
+                <h3>Banking</h3>
+              </div>
+              <p>Open Banking - Balances and statements.</p>
+              <div class="cat-tag">Open Banking</div>
+            </div>
+          </div>
+
+          <!-- Entity Governance Settings -->
+          <div class="entity-setup-box">
+            <div class="setup-header">
+              <div class="check-title">
+                <span class="icon-check">✓</span>
+                <strong>Policy & governance</strong>
+              </div>
+              <span class="meta-sub">Materiality, approvals, close calendar</span>
+            </div>
+
+            <div class="setup-pills-row">
+              <div class="setup-pill-group">
+                <span class="label">YOUR MAILBOX</span>
+                <span class="val-pill">Not connected (Optional)</span>
+              </div>
+              <div class="setup-pill-group">
+                <span class="label">DOCUMENTS + BUDGET</span>
+                <span class="val-pill highlight">Enterprise Brain - Finance workspace (Via Brain)</span>
+              </div>
+              <div class="setup-pill-group">
+                <span class="label">LEDGER, CRM, BILLING, BANKING</span>
+                <span class="val-pill highlight">Enterprise Brain - 14 systems (Via Brain)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sources Directory Section -->
+          <div class="sources-list-section">
+            <div class="sources-header-bar">
+              <div>
+                <h2>Sources</h2>
+                <p class="section-desc">Apps this close connects on its own, alongside the Brain — a personal mailbox, or anything you want kept private.</p>
+              </div>
+              <button class="btn btn-dark" id="btn-add-source">+ Add source</button>
+            </div>
+
+            <div class="connected-count-bar">
+              <span>Connected <strong>0</strong></span>
+              <input type="text" placeholder="Search sources" class="sources-search-input">
+            </div>
+
+            <div class="sources-empty-note">
+              No private sources connected. Slack, documents, budget, ledger, contracts, billing and banking resolve from the Enterprise Brain. A personal mailbox can be added here.
+            </div>
+
+            <div class="via-brain-section">
+              <div class="via-brain-title">
+                <span>✦ AVAILABLE THROUGH THE ENTERPRISE BRAIN (10)</span>
+                <span class="auth-tag">No authorization needed</span>
+              </div>
+
+              <div class="via-brain-list" id="sources-brain-list">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Screen 3: Closure Overview (Global Close Cockpit) -->
+        <div id="view-overview" class="page-view" style="display:none;">
+          <div class="page-header flex-between">
+            <div class="title-cluster">
+              <h1 class="page-title">Closure overview</h1>
+              <span class="subtitle-breadcrumb">The hub for close AI insights</span>
+            </div>
+            <div class="header-actions">
+              <button class="btn btn-dark" id="btn-ai-insight-top">✦ AI Insight</button>
+            </div>
+          </div>
+
+          <!-- Top Grid: Burndown Chart + Close Health -->
+          <div class="overview-top-grid">
+            <!-- Left: Close Burndown -->
+            <div class="card burndown-card">
+              <div class="card-header flex-between">
+                <div>
+                  <h3 class="card-title">Close burndown</h3>
+                  <span class="card-sub">Close items remaining vs plan</span>
+                </div>
+                <div class="pill-behind-plan">+4.0D BEHIND PLAN</div>
+              </div>
+
+              <div class="burndown-chart-wrapper" id="burndown-svg-container">
+                <!-- SVG Chart Injected Here -->
+              </div>
+
+              <div class="burndown-legend">
+                <span class="legend-item"><span class="legend-dot plan"></span> PLAN</span>
+                <span class="legend-item"><span class="legend-dot actual"></span> ACTUAL</span>
+                <span class="legend-item"><span class="legend-dot projected"></span> AI PROJECTED</span>
+              </div>
+            </div>
+
+            <!-- Right: Close Health -->
+            <div class="card close-health-card">
+              <div class="card-header flex-between">
+                <div>
+                  <h3 class="card-title">Close health</h3>
+                  <div class="projected-close-headline">
+                    <span class="proj-val">D+8.0</span>
+                    <span class="proj-delta">+4.0 vs plan</span>
+                    <span class="badge-ai-pred">AI PREDICTED</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="health-progress-wrap">
+                <div class="health-progress-bar">
+                  <div class="fill" style="width: 56%;"></div>
+                </div>
+                <div class="health-progress-meta flex-between">
+                  <span>D+4 / 56% complete</span>
+                  <span>Target: 12 Sep 2026</span>
+                </div>
+              </div>
+
+              <div class="health-stats-list">
+                <div class="stat-row">
+                  <span class="stat-label">Tasks complete</span>
+                  <span class="stat-num" id="overview-tasks-complete">5 of 14</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">Open tasks</span>
+                  <span class="stat-num" id="overview-open-tasks">9</span>
+                </div>
+                <div class="stat-row danger">
+                  <span class="stat-label">Overdue tasks</span>
+                  <span class="stat-num danger">3</span>
+                </div>
+                <div class="stat-row">
+                  <span class="stat-label">Tasks in progress</span>
+                  <span class="stat-num">6</span>
+                </div>
+              </div>
+
+              <!-- AI Insight Box -->
+              <div class="health-ai-insight">
+                <div class="insight-header">
+                  <span class="insight-sparkle">✦</span>
+                  <strong>AI INSIGHT</strong>
+                </div>
+                <p>5 of 14 checklist tasks are complete and 3 of 3 modules are underway. 8 days to the 12 Sep 2026 target.</p>
+                <span class="insight-sub">Enterprise Brain - reconciled across 14 systems</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Grid: Workload by Sub-Process + Module Quick Links -->
+          <div class="overview-bottom-grid">
+            <!-- Left: Workload by Sub-Process Chart -->
+            <div class="card workload-card">
+              <div class="card-header flex-between">
+                <h3 class="card-title">Workload by sub-process</h3>
+                <div class="workload-legend">
+                  <span class="legend-box complete"></span> COMPLETE
+                  <span class="legend-box open"></span> OPEN
+                </div>
+              </div>
+              <div class="workload-chart-wrapper" id="workload-svg-container">
+                <!-- SVG Bars Injected Here -->
+              </div>
+            </div>
+
+            <!-- Right: Modules Status List -->
+            <div class="card modules-card">
+              <h3 class="card-title">Active Close Modules</h3>
+              <div class="modules-list" id="overview-modules-list">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Screen 4: Checklist -->
+        <div id="view-checklist" class="page-view" style="display:none;">
+          <div class="page-header flex-between">
+            <div class="title-cluster">
+              <h1 class="page-title">Checklist</h1>
+              <span class="subtitle-breadcrumb">Phased workflow verification & AI autonomous execution</span>
+            </div>
+            <div class="header-actions">
+              <button class="btn btn-outline" id="btn-add-task">+ Add task</button>
+            </div>
+          </div>
+
+          <!-- Summary Metric Cards -->
+          <div class="checklist-summary-row">
+            <div class="card mini-stat-card">
+              <span class="stat-caption">TOTAL TASKS</span>
+              <span class="stat-val" id="chk-total">14</span>
+              <span class="stat-sub">Across all phases</span>
+            </div>
+            <div class="card mini-stat-card">
+              <span class="stat-caption">COMPLETED</span>
+              <span class="stat-val highlight" id="chk-done">5</span>
+              <span class="stat-sub">36% of the checklist</span>
+            </div>
+            <div class="card mini-stat-card">
+              <span class="stat-caption">IN PROGRESS</span>
+              <span class="stat-val" id="chk-progress">6</span>
+              <span class="stat-sub">Being worked now</span>
+            </div>
+            <div class="card mini-stat-card">
+              <span class="stat-caption">NOT STARTED</span>
+              <span class="stat-val" id="chk-todo">3</span>
+              <span class="stat-sub">Still to be picked up</span>
+            </div>
+          </div>
+
+          <!-- Phased Tasks Groups -->
+          <div class="checklist-phases-container" id="checklist-groups-wrapper">
+            <!-- Dynamic Task Groups -->
+          </div>
+        </div>
+
+        <!-- 5. Screen 5: Accrual & Prepaid -->
+        <div id="view-accruals" class="page-view" style="display:none;">
+          <div class="page-header flex-between">
+            <div class="title-cluster">
+              <h1 class="page-title">Accrual & prepaid</h1>
+              <span class="subtitle-breadcrumb">Automated ledger detection of missing vendor accruals</span>
+            </div>
+            <div class="header-actions">
+              <button class="btn btn-dark">+ New</button>
+            </div>
+          </div>
+
+          <!-- Accrual Navigation Tabs -->
+          <div class="sub-tabs-bar">
+            <button class="sub-tab active">Overview</button>
+            <button class="sub-tab">Vendor spend</button>
+            <button class="sub-tab">Accruals (5)</button>
+            <button class="sub-tab">Prepaids & contracts (3)</button>
+            <button class="sub-tab">Requests</button>
+            <button class="sub-tab">Entries</button>
+          </div>
+
+          <!-- Top KPI Cards -->
+          <div class="accruals-kpis-grid">
+            <div class="card kpi-spend-card">
+              <span class="kpi-caption">CATEGORY SPEND</span>
+              <div class="spend-headline">
+                <span class="kpi-big-val">$630.7K</span>
+                <span class="kpi-sub-figure">$1.2M 6-mo run-rate</span>
+                <span class="kpi-delta danger">-$551.5K</span>
+              </div>
+              <div class="mini-category-bars" id="accrual-cat-bars">
+                <!-- Mini category spend chart -->
+              </div>
+            </div>
+
+            <div class="card">
+              <span class="kpi-caption">ACCRUED LIABILITIES</span>
+              <span class="kpi-big-val">$64.5K</span>
+              <span class="kpi-accent">11% of run-rate</span>
+              <p class="kpi-note">Consumed, not yet invoiced. Ties to the GL accrual account.</p>
+            </div>
+
+            <div class="card">
+              <span class="kpi-caption">PREPAID ASSETS</span>
+              <span class="kpi-big-val">$11.5K</span>
+              <span class="kpi-accent">2.1% of run-rate</span>
+              <p class="kpi-note">Paid ahead of consumption, releasing this month.</p>
+            </div>
+
+            <div class="card">
+              <span class="kpi-caption">NEEDS ACCRUAL</span>
+              <span class="kpi-big-val">13</span>
+              <p class="kpi-note">8471K suggested - 3 found, 10 carried over.</p>
+            </div>
+
+            <div class="card">
+              <span class="kpi-caption">ESTIMATE ACCURACY</span>
+              <span class="kpi-big-val">0%</span>
+              <p class="kpi-note">0 of 0 past accruals inside +-5% tracking across periods.</p>
+            </div>
+          </div>
+
+          <!-- Detected from Ledger Carousel / Cards -->
+          <div class="card proposals-container">
+            <div class="proposals-header flex-between">
+              <div>
+                <h3>Detected from the ledger (16) <span class="ai-prop-tag">✦ AI NEXT PROPOSALS</span></h3>
+              </div>
+              <button class="btn btn-outline-sm">Open the worklist &rarr;</button>
+            </div>
+
+            <div class="proposals-horizontal-grid" id="accruals-proposals-grid">
+              <!-- Proposal Cards Injected via JS -->
+            </div>
+          </div>
+
+          <!-- Bottom Accruals Widgets -->
+          <div class="accruals-bottom-grid">
+            <div class="card">
+              <h4>Top vendors by spend</h4>
+              <ul class="mini-data-list">
+                <li><span>Amazon Web Services India</span> <strong>$1.3M</strong></li>
+                <li><span>Fivora Consulting LLP</span> <strong>3.00 lacs</strong></li>
+                <li><span>Deloitte Touche Tohmatsu</span> <strong>2.64 lacs</strong></li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h4>Balance rollforward</h4>
+              <div class="rollforward-row">
+                <div><span>Opening</span> <strong>$0</strong></div>
+                <div><span>Additions</span> <strong>$64.5K</strong></div>
+                <div><span>Releases</span> <strong>$0</strong></div>
+                <div><span>Closing</span> <strong>$64.5K</strong></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4>Estimate vs actual</h4>
+              <p class="empty-muted">0 items tracked in current active cycle.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Screen 6: Recognition and Compliance (ASC 606 & Gating Queue) -->
+        <div id="view-recognition" class="page-view" style="display:none;">
+          <div class="page-header flex-between">
+            <div class="title-cluster">
+              <h1 class="page-title">Recognition and compliance</h1>
+              <span class="subtitle-breadcrumb">ASC 606 revenue gating & Human-in-the-Loop confirmations</span>
+            </div>
+            <div class="header-actions">
+              <button class="btn btn-outline">Export</button>
+            </div>
+          </div>
+
+          <!-- Sub Tabs -->
+          <div class="sub-tabs-bar">
+            <button class="sub-tab active" id="tab-rec-overview">Overview</button>
+            <button class="sub-tab" id="tab-rec-queue">Gating queue (6)</button>
+            <button class="sub-tab">Contracts & schedules</button>
+            <button class="sub-tab">Deviations</button>
+            <button class="sub-tab">Recognition run</button>
+          </div>
+
+          <!-- KPI & Chart Grid -->
+          <div class="rec-top-grid">
+            <!-- Planned vs Recognised 2026 Chart -->
+            <div class="card rec-chart-card">
+              <div class="card-header flex-between">
+                <div>
+                  <span class="kpi-caption">PLANNED VS RECOGNISED - 2026</span>
+                  <div class="rec-headline-row">
+                    <span>Planned: <strong>$1.56M</strong></span>
+                    <span>Recognised Aug: <strong class="highlight">&gt;$450k</strong></span>
+                    <span class="danger">-$1.11M</span>
+                  </div>
+                </div>
+                <div class="chart-legend-rec">
+                  <span><span class="legend-rec planned"></span> Planned</span>
+                  <span><span class="legend-rec recognised"></span> Recognised</span>
+                </div>
+              </div>
+
+              <div class="rec-svg-wrapper" id="rec-monthly-svg">
+                <!-- Monthly Bar Chart -->
+              </div>
+            </div>
+
+            <!-- Mini Metric Cards -->
+            <div class="rec-stats-col">
+              <div class="card rec-stat-box">
+                <span class="kpi-caption">CONTRACTED ARR - 2026</span>
+                <span class="stat-highlight">$25.68M</span>
+                <span class="stat-sub">135 contracts - 114 delivered, 124 delivered from CRM. $0 excluded.</span>
+              </div>
+              <div class="card rec-stat-box">
+                <span class="kpi-caption">DEVIATIONS - 2026</span>
+                <span class="stat-highlight danger">118</span>
+                <span class="stat-sub">$450k posted - 11 posted against $1.56M planned.</span>
+              </div>
+              <div class="card rec-stat-box">
+                <span class="kpi-caption">RECOGNITION RUN - AUG</span>
+                <span class="stat-highlight">$1.56M</span>
+                <span class="stat-sub">$450k posted - 95 proposals - 3 gating decisions open.</span>
+              </div>
+              <div class="card rec-stat-box">
+                <span class="kpi-caption">ASC 606 COMPLIANCE</span>
+                <span class="stat-highlight">11 / 135</span>
+                <span class="stat-sub">11 read from the signed document - 124 derived from CRM.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gating Queue Kanban Board View -->
+          <div class="card gating-queue-section">
+            <div class="gating-header flex-between">
+              <div>
+                <h3>Gating queue (6) <span class="ai-prop-tag">✦ AI PROPOSALS</span></h3>
+              </div>
+              <div class="gating-actions">
+                <button class="btn btn-outline-sm" id="btn-accept-all-auto">Accept all auto-applied</button>
+              </div>
+            </div>
+
+            <!-- 4 Column Kanban Board -->
+            <div class="kanban-grid">
+              <!-- Column 1: NEEDS REVIEW -->
+              <div class="kanban-col" id="col-needs-review">
+                <div class="col-header flex-between">
+                  <span class="col-title">NEEDS REVIEW</span>
+                  <span class="col-count" id="count-needs-review">3 contracts</span>
+                </div>
+                <div class="kanban-cards-wrapper" id="cards-needs-review">
+                  <!-- Cards Injected -->
+                </div>
+              </div>
+
+              <!-- Column 2: AUTO-APPLIED -->
+              <div class="kanban-col" id="col-auto-applied">
+                <div class="col-header flex-between">
+                  <span class="col-title">AUTO-APPLIED</span>
+                  <span class="col-count" id="count-auto-applied">3 contracts</span>
+                </div>
+                <div class="kanban-cards-wrapper" id="cards-auto-applied">
+                  <!-- Cards Injected -->
+                </div>
+              </div>
+
+              <!-- Column 3: STARTED -->
+              <div class="kanban-col" id="col-started">
+                <div class="col-header flex-between">
+                  <span class="col-title">STARTED</span>
+                  <span class="col-count" id="count-started">0 contracts</span>
+                </div>
+                <div class="kanban-cards-wrapper empty-drop-zone" id="cards-started">
+                  <div class="drop-hint">Drop a card here to start recognition</div>
+                </div>
+              </div>
+
+              <!-- Column 4: DEFERRED -->
+              <div class="kanban-col" id="col-deferred">
+                <div class="col-header flex-between">
+                  <span class="col-title">DEFERRED</span>
+                  <span class="col-count" id="count-deferred">0 contracts</span>
+                </div>
+                <div class="kanban-cards-wrapper empty-drop-zone" id="cards-deferred">
+                  <div class="drop-hint">Drop a card here to defer it</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Screen 7: Flux & Variance (P&L Variance Review) -->
+        <div id="view-flux" class="page-view" style="display:none;">
+          <div class="page-header flex-between">
+            <div class="title-cluster">
+              <h1 class="page-title">P&amp;L Variance Review</h1>
+              <span class="subtitle-breadcrumb">Compare Jul 2026 vs Aug 2026 with autonomous AI explanations</span>
+            </div>
+            <div class="header-actions">
+              <button class="btn btn-outline">Export</button>
+              <button class="btn btn-dark" id="btn-goto-draft-jes">✦ Draft JEs for 37 flagged lines</button>
+            </div>
+          </div>
+
+          <!-- Top Variance Stat Cards -->
+          <div class="flux-stats-grid">
+            <div class="card mini-stat-card">
+              <span class="stat-caption">SNAPSHOT</span>
+              <span class="stat-val">v1</span>
+              <span class="stat-sub">Up to date with the ledger</span>
+            </div>
+            <div class="card mini-stat-card">
+              <span class="stat-caption">FLAGGED</span>
+              <span class="stat-val danger">37 / 51</span>
+              <span class="stat-sub">All by the rule</span>
+            </div>
+            <div class="card mini-stat-card">
+              <span class="stat-caption">UNREVIEWED</span>
+              <span class="stat-val">37</span>
+              <span class="stat-sub">0 reviewed - 0 approved</span>
+            </div>
+            <div class="card mini-stat-card">
+              <span class="stat-caption">MATERIALITY</span>
+              <span class="stat-val">$25,000.00 / 10%</span>
+              <span class="stat-sub">Global rule - edit</span>
+            </div>
+          </div>
+
+          <!-- P&L Hierarchical Tree Table -->
+          <div class="card table-card">
+            <table class="pnl-table" id="pnl-table">
+              <thead>
+                <tr>
+                  <th style="width: 32%;">ACCOUNT</th>
+                  <th style="width: 14%; text-align: right;">JUL 2026</th>
+                  <th style="width: 14%; text-align: right;">AUG 2026</th>
+                  <th style="width: 14%; text-align: right;">Δ $</th>
+                  <th style="width: 10%; text-align: right;">Δ %</th>
+                  <th style="width: 8%; text-align: center;">STATUS</th>
+                  <th style="width: 8%; text-align: right;">ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="pnl-table-body">
+                <!-- Dynamically Populated P&L Rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 8. Screen 8: Drafted Journal Entries (HITL Batch Approval) -->
+        <div id="view-journals" class="page-view" style="display:none;">
+          <div class="page-header flex-between">
+            <div class="title-cluster">
+              <div class="back-link" id="btn-back-to-flux">&larr; P&amp;L Variance Review</div>
+              <h1 class="page-title">Drafted Journal Entries</h1>
+              <span class="subtitle-breadcrumb">AI-prepared journal entries based on flagged variance anomalies</span>
+            </div>
+            <div class="header-actions">
+              <button class="btn btn-outline" id="btn-discard-batch">Discard batch</button>
+              <button class="btn btn-dark" id="btn-approve-all-jes">✦ Approve all 24 at $751,000.00</button>
+            </div>
+          </div>
+
+          <!-- Journal Entries Table -->
+          <div class="card table-card">
+            <table class="jes-table" id="jes-table">
+              <thead>
+                <tr>
+                  <th style="width: 4%;"><input type="checkbox" id="chk-select-all-jes" checked></th>
+                  <th style="width: 4%;">#</th>
+                  <th style="width: 10%;">TYPE</th>
+                  <th style="width: 25%;">SOURCE VARIANCE LINE</th>
+                  <th style="width: 12%; text-align: right;">AMOUNT</th>
+                  <th style="width: 35%;">MEMO</th>
+                  <th style="width: 10%; text-align: center;">SOURCE ROW</th>
+                </tr>
+              </thead>
+              <tbody id="jes-table-body">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Floating Global "Ask AI" Button -->
+    <button class="floating-ask-ai" id="btn-floating-ask-ai" title="Ask AI Close Assistant">
+      <span class="ai-star">✦</span>
+      <span>Ask AI</span>
+    </button>
+  </div>
+
+  <!-- ================= DRAWERS & MODALS ================= -->
+
+  <!-- Drawer 1: Task Inspection & AI Reasoning Drawer -->
+  <div class="drawer-overlay" id="drawer-task-overlay">
+    <div class="drawer-panel" id="drawer-task">
+      <div class="drawer-header">
+        <div class="drawer-tag-row">
+          <span class="drawer-tag">PRE-CLOSE - VERIFIED BY AI</span>
+          <span class="tag-brain">✦ Enterprise Brain reconciled across 14 systems</span>
+        </div>
+        <h2 id="drawer-task-title" class="drawer-title">Confirm cut-off dates with all entities</h2>
+        <p id="drawer-task-desc" class="drawer-desc">Cut-off timestamps from every connected ledger and matched to the close calendar.</p>
+        <button class="drawer-close-btn" id="btn-close-task-drawer">&times;</button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="drawer-meta-grid">
+          <div><span class="meta-lbl">Entity:</span> <strong>UnifyApps - 6 connected ledgers</strong></div>
+          <div><span class="meta-lbl">Close calendar:</span> <strong>Aug 2026</strong></div>
+        </div>
+
+        <!-- Sub-tasks Section -->
+        <div class="drawer-section">
+          <div class="flex-between section-head">
+            <h3>SUB-TASKS</h3>
+            <span class="badge-subtasks-done" id="drawer-subtask-counter">3 of 3 done - drafted by AI, edit freely</span>
+          </div>
+
+          <div class="subtasks-list" id="drawer-subtasks-list">
+            <!-- Dynamic subtasks -->
+          </div>
+
+          <div class="add-subtask-box">
+            <input type="text" placeholder="Describe a sub-task to add - e.g. check FX rate used..." id="input-new-subtask">
+            <button class="btn btn-outline-sm" id="btn-add-subtask">+ Add sub-task</button>
+          </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="drawer-section">
+          <h3>COMMENTS</h3>
+          <div class="comments-list" id="drawer-comments-list">
+            <p class="empty-muted">No comments on this task yet</p>
+          </div>
+
+          <div class="add-comment-box">
+            <textarea placeholder="Add a comment for whoever picks this up" id="input-new-comment"></textarea>
+            <button class="btn btn-dark" id="btn-post-comment">Post comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawer 2: Contract Gating Decision Drawer (Dubai Chamber of Commerce, etc.) -->
+  <div class="drawer-overlay" id="drawer-contract-overlay">
+    <div class="drawer-panel" id="drawer-contract">
+      <div class="drawer-header">
+        <div class="drawer-tag-row">
+          <span class="drawer-tag" id="drawer-contract-code">C-4 / CONTRACT-1011 - GATING - AUG 2026</span>
+        </div>
+        <h2 id="drawer-contract-title" class="drawer-title">Dubai Chamber of Commerce</h2>
+        <button class="drawer-close-btn" id="btn-close-contract-drawer">&times;</button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="contract-meta-grid">
+          <div class="meta-col"><span class="meta-lbl">CONTRACT ARR</span> <strong id="dc-arr">$36,000</strong></div>
+          <div class="meta-col"><span class="meta-lbl">MONTHLY</span> <strong id="dc-monthly">$3,000</strong></div>
+          <div class="meta-col"><span class="meta-lbl">SCHEDULE</span> <span id="dc-schedule">5 of 12</span></div>
+          <div class="meta-col"><span class="meta-lbl">STATUS</span> <span class="badge-status-yellow" id="dc-status">In review</span></div>
+          <div class="meta-col"><span class="meta-lbl">OWNER</span> <strong id="dc-owner">Shubhang K</strong></div>
+          <div class="meta-col"><span class="meta-lbl">ASC 606</span> <span>In review</span></div>
+        </div>
+
+        <!-- Source Evidence Box -->
+        <div class="source-evidence-card">
+          <div class="evidence-title">✦ SOURCE EVIDENCE (HubSpot / CRM)</div>
+          <ul class="evidence-list" id="dc-evidence-list">
+            <li><code>recognition_trigger = signature</code> (HubSpot)</li>
+            <li><code>no trigger event for Aug 2026</code> recorded in HubSpot</li>
+            <li>Schedule v1 of 1 - effective Oct 26</li>
+            <li>START: 2026-10-01 | END: 2027-09-30 | NET: $3,000</li>
+          </ul>
+        </div>
+
+        <!-- Justification Input -->
+        <div class="drawer-section">
+          <h3>YOUR JUSTIFICATION</h3>
+          <p class="drawer-helper">Why start or defer this month? Stored with the decision and audited afterwards.</p>
+          <textarea id="input-contract-justification" placeholder="Why start or defer this month? Stored with the decision and budgeted afterwards."></textarea>
+        </div>
+
+        <div class="contract-actions-row">
+          <button class="btn btn-outline" id="btn-confirm-start-contract">Confirm start</button>
+          <button class="btn btn-dark" id="btn-defer-contract">✦ Defer to Sep (recommended)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drawer 3: Variance Detail Drawer (AI Explanation & Live Context Rewrite) -->
+  <div class="drawer-overlay" id="drawer-variance-overlay">
+    <div class="drawer-panel" id="drawer-variance">
+      <div class="drawer-header">
+        <div class="drawer-tag-row">
+          <span class="drawer-tag">VARIANCE DETAIL - AUG 2026 - SNAPSHOT v1</span>
+          <span class="status-pill status-open">OPEN</span>
+        </div>
+        <h2 id="var-title" class="drawer-title">Recurring Revenue</h2>
+        <div class="variance-fig-row" id="var-figures">
+          672,258.25 &rarr; 0.00 | <span class="danger">-$672,258.25 (-100.0%)</span>
+        </div>
+        <button class="drawer-close-btn" id="btn-close-variance-drawer">&times;</button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="variance-action-buttons">
+          <button class="btn btn-outline-sm" id="btn-approve-variance">Approve</button>
+          <button class="btn btn-outline-sm" id="btn-mark-reviewed-variance">Mark reviewed</button>
+        </div>
+
+        <!-- AI Explanation Box -->
+        <div class="ai-explanation-card" id="var-ai-box">
+          <div class="exp-header flex-between">
+            <span class="exp-title"><span class="exp-sparkle">✦</span> AI EXPLANATION</span>
+            <span class="exp-badge" id="var-context-applied-badge">0 context applied</span>
+          </div>
+          <p id="var-explanation-text" class="exp-body">
+            Every account under Recurring Revenue booked $672,258.25 in July and nil in August. Revenue does not stop; a nil month means the revenue close has not run for this period - recognition is still sitting in the gating queue, so nothing has posted to the P&L yet. Treat this as an unfinished close, not a $672,258.25 decline: no journal will fix it and no explanation is owed until the recognition run posts. Clear the 2 gating decisions in Recognition and compliance, refresh the snapshot, then read this line again.
+          </p>
+        </div>
+
+        <!-- Attribution By Child -->
+        <div class="drawer-section">
+          <h3>ATTRIBUTION BY CHILD</h3>
+          <div class="attribution-bars" id="var-attributions-list">
+            <div class="attr-row">
+              <div class="flex-between">
+                <span>40201001 License / Subscription Fee</span>
+                <strong class="danger">+85%</strong>
+              </div>
+              <div class="attr-track"><div class="attr-fill danger" style="width: 85%;"></div></div>
+            </div>
+            <div class="attr-row">
+              <div class="flex-between">
+                <span>40201002 Professional Fee</span>
+                <strong class="danger">+15%</strong>
+              </div>
+              <div class="attr-track"><div class="attr-fill danger" style="width: 15%;"></div></div>
+            </div>
+          </div>
+          <span class="card-sub">Bars cap at 100%; the label carries the true figure. Offsetting children render green and can be negative.</span>
+        </div>
+
+        <!-- Comment / AI Context Tabs -->
+        <div class="drawer-section">
+          <div class="context-tabs-row">
+            <button class="ctx-tab" id="tab-ctx-comment">Comment</button>
+            <button class="ctx-tab active" id="tab-ctx-ai">✦ AI context</button>
+          </div>
+
+          <div id="panel-ai-context">
+            <p class="drawer-helper">AI context helps the system understand how to evaluate that line in the future.</p>
+            <textarea id="input-ai-context" placeholder="e.g. billing occurs every 45 days - treat two-bill months as timing, not cost"></textarea>
+            <button class="btn btn-dark" id="btn-submit-ai-context">+ Add context</button>
+          </div>
+
+          <div class="activity-log-section">
+            <h4>ACTIVITY</h4>
+            <div class="activity-items-list" id="var-activity-list">
+              <!-- Logs populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global "Ask AI" Copilot Modal -->
+  <div class="modal-overlay" id="modal-ask-ai-overlay">
+    <div class="modal-panel ai-modal">
+      <div class="modal-header flex-between">
+        <div class="modal-title-cluster">
+          <span class="ai-sparkle">✦</span>
+          <h3>Ask AI Close Assistant</h3>
+          <span class="tag-brain">Enterprise Brain v2.4</span>
+        </div>
+        <button class="modal-close-btn" id="btn-close-ask-ai-modal">&times;</button>
+      </div>
+
+      <div class="modal-body chat-body" id="ai-chat-messages">
+        <div class="chat-bubble ai">
+          <p>Hello Akshara. I have full real-time visibility across all 14 connected ledgers and systems. How can I assist you with the August 2026 close today?</p>
+          <div class="quick-prompts">
+            <button class="quick-chip" data-prompt="Why is Global Close behind plan by 4 days?">Why are we behind plan?</button>
+            <button class="quick-chip" data-prompt="Explain Dubai Chamber of Commerce gating status">Dubai Chamber gating status?</button>
+            <button class="quick-chip" data-prompt="Explain Recurring Revenue variance">Recurring Revenue decline explanation?</button>
+            <button class="quick-chip" data-prompt="Summarize drafted journal entries">Summarize drafted journal entries</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer chat-footer">
+        <input type="text" id="ai-chat-input" placeholder="Ask about close forecast, blockers, gating contracts, or variances...">
+        <button class="btn btn-dark" id="btn-send-ai-chat">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>
