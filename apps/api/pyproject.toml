@@ -1,0 +1,44 @@
+[project]
+name = "cch-api"
+version = "0.1.0"
+description = "Continuous Close Hub API (FastAPI) and worker"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi==0.115.5",
+  "uvicorn[standard]==0.32.1",
+  "pydantic==2.10.2",
+  "pydantic-settings==2.6.1",
+  "sqlalchemy[asyncio]==2.0.36",
+  "asyncpg==0.30.0",
+  "psycopg[binary]==3.2.3",
+  "alembic==1.14.0",
+  "anthropic>=0.75",
+  "httpx>=0.27",
+  "email-validator==2.2.0",
+]
+
+[dependency-groups]
+dev = [
+  "pytest==8.3.3",
+  "pytest-asyncio==0.25.3",
+  "ruff==0.8.0",
+  "mypy==1.13.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 240
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = ["S101", "S608", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"app/seed.py" = ["S311", "E501"]  # demo data only
+"tests/*" = ["S105", "S106", "S603", "S607"]  # test setup runs alembic
